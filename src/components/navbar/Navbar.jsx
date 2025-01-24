@@ -18,8 +18,11 @@ const Navbar = () => {
 
   // Logout function
   const logout = () => {
-    localStorage.removeItem("users"); // Correct method to remove user data
-    navigate("/login"); // Use navigate for routing instead of window.location.href
+    localStorage.removeItem("users");
+
+    setTimeout(() => {
+      navigate("/login");
+    }, 100);
   };
 
   return (
@@ -38,18 +41,25 @@ const Navbar = () => {
           <NavLink to="/allProducts" className={`hover:text-red text-[20px]`}>
             PRODUCTS
           </NavLink>
-          <NavLink to="/userDashboard" className={`hover:text-red text-[20px]`}>
-            ORDERS
-          </NavLink>
+          {user?.role === "user" && (
+            <NavLink
+              to="/userDashboard"
+              className={`hover:text-red text-[20px]`}
+            >
+              ORDERS
+            </NavLink>
+          )}
           <NavLink to="/contact" className={`hover:text-red text-[20px]`}>
             CONTACT
           </NavLink>
-          <NavLink
-            to="/adminDashboard"
-            className={`hover:text-red text-[20px]`}
-          >
-            ADMIN
-          </NavLink>
+          {user?.role == "admin" && (
+            <NavLink
+              to="/adminDashboard"
+              className={`hover:text-red text-[20px]`}
+            >
+              ADMIN
+            </NavLink>
+          )}
           <Link to="/cart">
             <PiShoppingCartLight className={`hover:text-red text-[25px]`} />
           </Link>

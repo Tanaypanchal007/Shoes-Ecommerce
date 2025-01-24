@@ -44,7 +44,7 @@ const signup = () => {
       );
 
       const user = {
-        name: UserSignup.name,
+        name: userData.name,
         email: users.user.email,
         uid: users.user.uid,
         role: userData.role,

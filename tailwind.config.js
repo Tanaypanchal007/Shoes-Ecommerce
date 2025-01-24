@@ -15,7 +15,8 @@ export default {
         'balck': "#000000",
         'white': "#ffffff",
         "red": "#bb1e2c",
-        "primaryColor": "#1e1e1e"
+        "primaryColor": "#1e1e1e",
+        "lightBg": "#f3f4f6"
       },
       boxShadow: {
         '3xl': '0px 0px 6px -1px rgba(0, 0, 0, 0.3)',

@@ -13,6 +13,9 @@ const products = [
   },
 ];
 
+//Get User Data from Database that is stored in LocalStorage
+const user = JSON.parse(localStorage.getItem("users"));
+
 const UserDashboard = () => {
   return (
     <Layout>
@@ -32,13 +35,17 @@ const UserDashboard = () => {
             {/* text  */}
             <div className="">
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Name :</span> Panchal Tanay
-                Dipakbhai
+                <span className=" font-semibold">Name :</span> {user.name}
               </h1>
               <h1 className=" text-center text-lg">
-                <span className=" font-bold">Email :</span>{" "}
-                tanaypanchal7@gmail.com
+                <span className=" font-semibold">Email :</span> {user.email}
               </h1>
+              <p className=" text-center text-lg">
+                <span className=" font-semibold">Login Date :</span> {user.date}
+              </p>
+              <p className=" text-center text-lg ">
+                <span className=" font-semibold">Role :</span> {user.role}
+              </p>
             </div>
           </div>
         </div>

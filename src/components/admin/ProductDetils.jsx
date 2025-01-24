@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import MyContext from "../../context/MyContext";
 
 const ProductDetail = () => {
+  //Get Products Details from the Firebase using Context
+
+  const context = useContext(MyContext);
+  const { getAllProducts } = context;
+
+  console.log(getAllProducts);
+
   return (
     <div>
       <div className="py-5 flex justify-between items-center">
@@ -30,7 +39,31 @@ const ProductDetail = () => {
                 scope="col"
                 className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-300 text-black bg-gray-100"
               >
-                Location Name
+                Product Image
+              </th>
+              <th
+                scope="col"
+                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-300 text-black bg-gray-100"
+              >
+                Product Title
+              </th>
+              <th
+                scope="col"
+                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-300 text-black bg-gray-100"
+              >
+                Product Price
+              </th>
+              <th
+                scope="col"
+                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-300 text-black bg-gray-100"
+              >
+                Category
+              </th>
+              <th
+                scope="col"
+                className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-gray-300 text-black bg-gray-100"
+              >
+                Date
               </th>
               <th
                 scope="col"
@@ -45,20 +78,45 @@ const ProductDetail = () => {
                 Action
               </th>
             </tr>
-            <tr className="text-black">
-              <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black ">
-                1.
-              </td>
-              <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
-                {"name"}
-              </td>
-              <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black cursor-pointer ">
-                Edit
-              </td>
-              <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black text-red-500 cursor-pointer ">
-                Delete
-              </td>
-            </tr>
+            {getAllProducts.map((item, inx) => {
+              const { id, title, price, category, date, productImageUrl } =
+                item;
+
+              return (
+                <tr className="text-black" key={inx}>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black ">
+                    {inx + 1}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={productImageUrl}
+                        alt=""
+                        className="h-[80px] w-[80px] object-cover p-1 cursor-pointer rounded-lg"
+                      />
+                    </div>
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
+                    {title}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
+                    {price}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
+                    {category}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black first-letter:uppercase ">
+                    {date}
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black cursor-pointer ">
+                    Edit
+                  </td>
+                  <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-gray-300  text-black text-red-500 cursor-pointer ">
+                    Delete
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

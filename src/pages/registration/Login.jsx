@@ -101,7 +101,7 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <div className="mt-7">
+          <div className="mt-7 w-[70%]">
             <p className="text-center">Don't have an account?</p>
             <button
               className="border-[1px] border-primaryColor py-2 text-black mt-2 rounded w-full"

@@ -16,6 +16,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddProduct from "./pages/admin/addProducts";
 import MyState from "./context/myState";
 import { Toaster } from "react-hot-toast";
+import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
+import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin";
 
 const App = () => {
   return (
@@ -32,9 +34,34 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/*" element={<NoHome />} />
-          <Route path="/userDashboard" element={<UserDashboard />} />
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
-          <Route path="/addProduct" element={<AddProduct />} />
+
+          <Route
+            path="/userDashboard"
+            // This element is accessible by an all Users .
+            element={
+              <ProtectedRouteForUser>
+                <UserDashboard />
+              </ProtectedRouteForUser>
+            }
+          />
+          <Route
+            path="/adminDashboard"
+            // This element is only accessible by an admin's email ID and password.
+            element={
+              <ProtectedRouteForAdmin>
+                <AdminDashboard />
+              </ProtectedRouteForAdmin>
+            }
+          />
+          <Route
+            path="/addProduct"
+            // This element is only accessible by an admin's email ID and password.
+            element={
+              <ProtectedRouteForAdmin>
+                <AddProduct />
+              </ProtectedRouteForAdmin>
+            }
+          />
         </Routes>
         <Toaster />
       </BrowserRouter>
