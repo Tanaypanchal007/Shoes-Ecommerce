@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { fireDB } from "../firebase/FirebaseConfig";
-import MyContext from "./MyContext";
+import MyContext from "../context/MyContext";
 
 const MyState = ({ children }) => {
   const [getAllProducts, setGetAllProducts] = useState([]);
@@ -28,7 +28,7 @@ const MyState = ({ children }) => {
     getAllProductFunction();
   }, []);
   return (
-    <MyContext.Provider value={{ getAllProducts }}>
+    <MyContext.Provider value={{ getAllProducts, getAllProductFunction }}>
       {" "}
       {children}{" "}
     </MyContext.Provider>

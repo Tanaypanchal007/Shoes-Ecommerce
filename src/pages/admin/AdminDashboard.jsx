@@ -5,8 +5,13 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ProductDetail from "../../components/admin/ProductDetils";
 import OrderDetail from "../../components/admin/OrderDetail";
 import UserDetail from "../../components/admin/UserDetail";
+import { useContext } from "react";
+import MyContext from "../../context/MyContext";
 
 const AdminDashboard = () => {
+  const context = useContext(MyContext);
+  const { getAllProducts } = context;
+
   return (
     <div>
       {/* Top */}
@@ -51,7 +56,7 @@ const AdminDashboard = () => {
                     <MdOutlineProductionQuantityLimits className="text-5xl" />
                   </div>
                   <h2 className="title-font font-medium text-3xl text-black fonts1">
-                    10
+                    {getAllProducts.length}
                   </h2>
                   <p className=" text-black  font-bold">Total Products</p>
                 </div>
