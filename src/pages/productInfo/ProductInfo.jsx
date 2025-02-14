@@ -8,6 +8,7 @@ import { doc, getDoc } from "firebase/firestore";
 const ProductInfo = () => {
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState(""); // State to manage the main image
+  const [selectedSize, setSelectedSize] = useState("");
   const { id } = useParams();
 
   // Fetch product data from Firestore
@@ -26,6 +27,10 @@ const ProductInfo = () => {
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
+  };
+
+  const handelSize = (size) => {
+    setSelectedSize(size);
   };
 
   useEffect(() => {
@@ -89,8 +94,11 @@ const ProductInfo = () => {
           <div className="flex items-center gap-4 mt-2">
             {product.sizes?.map((size, index) => (
               <button
-                className="w-14 border border-primaryColor text-black font-semibold rounded flex justify-center"
+                className={`w-14 border border-primaryColor text-black font-semibold rounded flex justify-center ${
+                  selectedSize === size ? "bg-black text-white" : ""
+                }`}
                 key={index}
+                onClick={() => handelSize(size)}
               >
                 {size}
               </button>
