@@ -14,7 +14,7 @@ import Signup from "./pages/registration/Signup";
 import UserDashboard from "./pages/user/UserDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddProduct from "./pages/admin/addProducts";
-import MyState from "./context/myState";
+import MyState from "./context/MyState";
 import UpdateProducts from "./pages/admin/UpdateProducts";
 import { Toaster } from "react-hot-toast";
 import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
