@@ -7,7 +7,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import myContext from "../../context/myContext";
+import myContext from "../../context/MyContext";
 import toast from "react-hot-toast";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { useNavigate, useParams } from "react-router";
