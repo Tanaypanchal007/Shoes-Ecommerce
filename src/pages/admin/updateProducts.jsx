@@ -39,7 +39,7 @@ const categoryList = [
   },
 ];
 
-const updateProducts = () => {
+const UpdateProducts = () => {
   const context = useContext(myContext);
   const { getAllProductFunction } = context;
 
@@ -222,4 +222,4 @@ const updateProducts = () => {
   );
 };
 
-export default updateProducts;
+export default UpdateProducts;
