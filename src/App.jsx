@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "./pages/home/Home";
 import NoHome from "./pages/noHome/NoHome";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,7 +13,7 @@ import UserDashboard from "./pages/user/UserDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddProduct from "./pages/admin/addProducts";
 import MyState from "./context/MyState";
-import UpdateProducts from "./pages/admin/UpdateProducts";
+import UpdateProducts from "./pages/admin/UpdateProduct";
 import { Toaster } from "react-hot-toast";
 import { ProtectedRouteForUser } from "./protectedRoute/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoute/ProtectedRouteForAdmin";
