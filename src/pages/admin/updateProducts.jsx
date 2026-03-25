@@ -1,11 +1,4 @@
-import {
-  Timestamp,
-  addDoc,
-  collection,
-  doc,
-  getDoc,
-  setDoc,
-} from "firebase/firestore";
+import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import myContext from "../../context/MyContext";
 import toast from "react-hot-toast";
